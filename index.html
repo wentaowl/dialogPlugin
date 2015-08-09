@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>弹窗插件</title>
+<!-- 支持IE7+ chrome Firefox Opeara Safari-->
+<link rel="stylesheet" type="text/css" href="css/zdialog.css">
+<script type="text/javascript">
+    /**
+     @author zhangxu9@leju.com
+     @name zdialog.js
+     @description  弹窗插件
+     @param {String} title 标题内容  
+     @param {String} content 消息内容  值是文字或者html元素（如果传入的是html元素，则覆盖整个弹窗的内容）
+     @param {String|Boolean} okVal 确定按钮的文字  值是文字，修改确定按钮上的文字；值是boolean，true 为默认文字，false 删除按钮
+     @param {String} cancelVal 取消按钮的文字   值是文字，修改确定按钮上的文字；值是boolean，true 为默认文字，false 删除按钮
+     @param {Function} okFun 点击确定按钮后执行的回调函数  
+     @param {Function} cancelFun 点击取消按钮后执行的回调函数
+     @param {String|Number} width 弹层的宽度  
+     @param {String|Number} height 弹层的高度   
+     @param {Boolean} fixed 开启静止定位，针对浏览器窗口定位
+     @param {String|Number} left 弹层的相对可视区域X轴的坐标  值为数字或者auto，设置auto，弹窗会在水平方向居中显示
+     @param {String|Number} top 弹层的相对可视区域Y轴的坐标   值为数字或者auto，设置auto，弹窗会在垂直方向居中显示
+     @param {Boolean} showShadow 是否显示弹窗下面的遮罩层    
+     @param {String} background 遮罩层的背景颜色   
+     @param {String} opacity 遮罩层的透明度   
+     @param {Number} time 设置弹窗显示的时间    设置这个值，点叉关闭时会倒计时关闭   
+     @param {Boolean} drag 是否允许用户拖动位置  
+     @param {Boolean} esc 是否允许用按键Esc关闭弹窗   
+     @param {Number} zIndex 设置弹窗的z-index属性
+     @param {Function} init 弹窗弹出后执行的函数
+     @param {Function} closeFun 点叉关闭弹窗前执行的函数
+     */
+</script>
+<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+<script type="text/javascript" src="zdialog.js"></script>
+</head>
+<body style="height:2000px;">
+    <a id="oA" href="javascript:;">弹出窗口</a>
+    <script type="text/javascript">
+        
+        $('#oA').bind('click', function(){
+            zConfig ({
+                content:'确定要关闭这个窗口吗？',
+                left: 'auto',
+                top: 'auto',
+                title: '提示框框在此',
+                fixed: true,
+                width: 426,
+                height: 300,
+                showShadow: true,
+                okVal: '很确定',
+                cancelVal: true,
+                opacity: 0.8,
+                time : 2,
+                drag: true,
+                init: function(){
+                    console.log('已经打开弹窗');
+                },
+                okFun: function(){
+                    console.log('点击确定按钮');
+                },
+                cancelFun: function(){
+                    console.log('点击取消按钮');
+                    // this.remove();
+                },
+                closeFun: function(){
+                    this.remove()
+                },
+                esc: true                   
+            });
+        });
+        
+    </script>
+</body>
+</html>
+
+<!--<div class="y_wembox" style="position:relative; left:0; top:0; margin:0; margin-top:42px\0;/* IE8, IE9, IE10 */ margin-top:0\9\0; /*IE9, IE10*/ ">'+
+    '<a href="#" class="y_wclose zdialog-close" style=""></a>'+
+    '<h3>'+"扫描二维码关注乐居移动"+'<br />'+"点击更多精彩查看91联盟移动版   "+'</h3>'+
+    '<div class="y_ebox">'+
+    '<div class="y_ebox1">'+
+    '<div class="y_ebox2"><img src="http://cdn0.ljimg.com/121/union/img/temp/saoma_login.jpg" alt=""></div>'+
+    '</div>'+                       
+    '</div>'+
+    '<p>请使用微信扫描二维码</p>'+
+    '</div>-->
+
