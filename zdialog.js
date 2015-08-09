@@ -4,8 +4,7 @@
  * @date    2015-07-27 15:02:56
  * @version $Id$
  */
-
-function Zdialog(options){
+function Zdialog(options){ 
 	this.options = options;
 	/**
 	 @author zhangxu9@leju.com
